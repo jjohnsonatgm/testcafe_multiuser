@@ -1,0 +1,16 @@
+{
+  "name": "testcafe-multiuser-scenario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe --test-meta type=multi-user"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "testcafe": "^1.16.1",
+    "typescript": "^4.5.4"
+  }
+}

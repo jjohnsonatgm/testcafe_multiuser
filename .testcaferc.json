@@ -1,0 +1,30 @@
+{
+  "browsers": [
+    "chrome"
+  ],
+  "src": [
+    "./test/fixtures/*.ts"
+  ],
+  "reporter": [
+    {
+      "name": "spec"
+    }
+  ],
+  "screenshots": {
+    "path": "./screenshots/",
+    "takeOnFails": true,
+    "fullPage": true,
+    "pathPattern": "${DATE}_${TIME}/test-${TEST_INDEX}/${USERAGENT}/${FILE_INDEX}.png"
+  },
+  "compilerOptions": {
+    "typescript": {
+      "configPath": "./tsconfig.json"
+    }
+  },
+  "hostname": "localhost",
+  "port": "9000",
+  "pageLoadTimeout": 20000,
+  "selectorTimeout": 30000,
+  "disableMultipleWindows": true,
+  "skipJsErrors": true
+}
