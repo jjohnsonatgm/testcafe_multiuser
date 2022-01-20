@@ -4,7 +4,7 @@ export class User {
   private _name: any;
   private _filename: any;
   private _browser: any;
-  public _promiseOfInit: any;
+  public promiseOfInit: any;
   private _expectedStageName: any;
   private _runExpectedStage: any;
   private _confirmCurrentStep: any;
@@ -14,14 +14,14 @@ export class User {
     this._filename = filename;
     this._browser = browser;
 
-    this._promiseOfInit = new Promise(resolve => {
+    this.promiseOfInit = new Promise(resolve => {
       this._confirmCurrentStep = resolve;
     });
 
-    this._expectedStageName = null;
-    this._runExpectedStage = void 0;
+    this._expectedStageName = void 0;
+    this._runExpectedStage = null;
 
-    this._runTest().then(r => {});
+    this._runTest();
   }
 
   get name() {
@@ -37,12 +37,10 @@ export class User {
       .browsers(this._browser)
       .run();
 
-    await testcafe.close();
+    testcafe.close();
   }
 
-  async runStage(stageName) {
-    console.log(stageName);
-    console.log(this._expectedStageName);
+  async runStage(stageName: string) {
     if(stageName !== this._expectedStageName) {
       throw new Error(`Another stage was expected:
         expected: ${this._expectedStageName}

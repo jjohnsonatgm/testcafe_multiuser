@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./build/test/fixtures/main.test.js"
+    "test": "node ./build/test/fixtures/users/scenario-gist.js"
   },
   "author": "",
   "license": "ISC",

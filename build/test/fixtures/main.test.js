@@ -46,8 +46,8 @@ function run() {
                 case 0:
                     scenario = new scenario_class_1.Scenario('An example of synchronizing multiple tests');
                     return [4 /*yield*/, Promise.all([
-                            scenario.createUser('Student', '../student.multi.test.ts', 'chrome'),
-                            scenario.createUser('Teacher', '../teacher.multi.test.ts', 'chrome --incognito')
+                            scenario.createUser('Student', './build/test/fixtures/users/student.multi.test.js', 'chrome'),
+                            scenario.createUser('Teacher', './build/test/fixtures/users/teacher.multi.test.js', 'chrome --incognito')
                         ])];
                 case 1:
                     _a = _b.sent(), user1 = _a[0], user2 = _a[1];
@@ -57,11 +57,17 @@ function run() {
                         ])];
                 case 2:
                     _b.sent();
+                    return [4 /*yield*/, user1.runStage('Click Auth')];
+                case 3:
+                    _b.sent();
+                    return [4 /*yield*/, user2.runStage('Click Auth')];
+                case 4:
+                    _b.sent();
+                    user1.runStage('End');
+                    user2.runStage('End');
                     return [2 /*return*/];
             }
         });
     });
 }
 exports.run = run;
-;
-run().then(function (r) { });

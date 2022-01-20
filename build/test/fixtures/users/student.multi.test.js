@@ -41,21 +41,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var scenario_class_1 = require("../../classes/scenario.class");
-fixture(templateObject_1 || (templateObject_1 = __makeTemplateObject(["Teacher Fixture for multi remote"], ["Teacher Fixture for multi remote"]))).page(templateObject_2 || (templateObject_2 = __makeTemplateObject(["https://the-internet.herokuapp.com/"], ["https://the-internet.herokuapp.com/"])));
-test.meta('type', 'multi-remote')('Test multi user functionality', function (t) { return __awaiter(void 0, void 0, void 0, function () {
-    var scenario, stage;
+var scenario = (0, scenario_class_1.getScenario)('An example of synchronizing multiple tests');
+var stage = scenario.initUser('Student');
+fixture(templateObject_1 || (templateObject_1 = __makeTemplateObject(["Student Fixture for multi remote"], ["Student Fixture for multi remote"]))).page(templateObject_2 || (templateObject_2 = __makeTemplateObject(["https://the-internet.herokuapp.com/"], ["https://the-internet.herokuapp.com/"])));
+test.meta('type', 'multi-remote')('Test student multi user functionality', function (t) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log('Student');
-                scenario = (0, scenario_class_1.getScenario)('An example of synchronizing multiple tests');
-                stage = scenario.initUser('Student');
-                return [4 /*yield*/, stage('Check page load')];
+            case 0: return [4 /*yield*/, stage('Check page load')];
             case 1:
                 _a.sent();
-                console.log('Insert use role here');
-                return [4 /*yield*/, stage('End')];
+                return [4 /*yield*/, stage('Click Auth')];
             case 2:
+                _a.sent();
+                return [4 /*yield*/, t.click('[href="/dropdown"]')];
+            case 3:
+                _a.sent();
+                return [4 /*yield*/, stage('End')];
+            case 4:
                 _a.sent();
                 return [2 /*return*/];
         }

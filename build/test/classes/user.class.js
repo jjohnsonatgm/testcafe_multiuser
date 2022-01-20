@@ -47,12 +47,12 @@ var User = /** @class */ (function () {
         this._name = name;
         this._filename = filename;
         this._browser = browser;
-        this._promiseOfInit = new Promise(function (resolve) {
+        this.promiseOfInit = new Promise(function (resolve) {
             _this._confirmCurrentStep = resolve;
         });
-        this._expectedStageName = null;
-        this._runExpectedStage = void 0;
-        this._runTest().then(function (r) { });
+        this._expectedStageName = void 0;
+        this._runExpectedStage = null;
+        this._runTest();
     }
     Object.defineProperty(User.prototype, "name", {
         get: function () {
@@ -76,9 +76,7 @@ var User = /** @class */ (function () {
                                 .run()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, testcafe.close()];
-                    case 3:
-                        _a.sent();
+                        testcafe.close();
                         return [2 /*return*/];
                 }
             });
@@ -88,8 +86,6 @@ var User = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                console.log(stageName);
-                console.log(this._expectedStageName);
                 if (stageName !== this._expectedStageName) {
                     throw new Error("Another stage was expected:\n        expected: ".concat(this._expectedStageName, "\n        tried: ").concat(stageName, "\n    "));
                 }

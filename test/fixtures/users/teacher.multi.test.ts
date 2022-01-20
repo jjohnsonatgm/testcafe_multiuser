@@ -7,11 +7,11 @@ fixture`Teacher Fixture for multi remote`
   .page`https://the-internet.herokuapp.com/`
 
 test.meta('type', 'multi-remote')
-('Test multi user functionality', async t => {
-  console.log('Teacher');
+('Test teacher multi user functionality', async t => {
   await stage('Check page load');
 
-  console.log('Insert use role here.');
+  await stage('Click Auth');
+  await t.click('[href="/dropdown"]');
 
   await stage('End');
 });
