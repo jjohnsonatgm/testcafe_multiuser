@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe --test-meta type=multi-user"
+    "test": "node ./build/test/fixtures/main.test.js"
   },
   "author": "",
   "license": "ISC",
